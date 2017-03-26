@@ -26,9 +26,13 @@ repositories {
 }
 
 dependencies {
+    compileOnly "org.projectlombok:lombok:1.16.16"
+    compile 'com.google.guava:guava:21.0'
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile 'org.springframework.boot:spring-boot-devtools'
     testCompile 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
+    runtime 'org.webjars:webjars-locator:0.30'
+    runtime 'org.webjars:bootstrap:3.3.7-1'
 }
 
 

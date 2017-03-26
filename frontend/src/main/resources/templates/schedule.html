@@ -1,10 +1,28 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>OpKoKo Schedule</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel='stylesheet' href='/webjars/bootstrap/css/bootstrap.css'/>
 </head>
 <body>
-<p th:text="'Hello, ' + ${name} + '!'" />
+<table class="table-striped">
+    <thead>
+    <tr>
+        <th>Tid</th>
+        <th>Beskrivning</th>
+        <th>Vem</th>
+        <th>Plats</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="event : ${events}">
+        <td th:text="${event.start}"/>
+        <td th:text="${event.description}"/>
+        <td th:text="${event.speaker}"/>
+        <td th:text="${event.location}"/>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
