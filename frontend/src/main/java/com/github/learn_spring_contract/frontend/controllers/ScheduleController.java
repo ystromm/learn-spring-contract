@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ScheduleController {
 
-
     private final EventDTOsClient eventDTOsClient;
 
     @Autowired
