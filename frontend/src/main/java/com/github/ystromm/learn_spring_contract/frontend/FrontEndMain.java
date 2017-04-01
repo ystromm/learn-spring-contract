@@ -1,4 +1,4 @@
-package com.github.learn_spring_contract.frontend;
+package com.github.ystromm.learn_spring_contract.frontend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

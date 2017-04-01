@@ -1,6 +1,6 @@
-package com.github.learn_spring_contract.frontend.controllers;
+package com.github.ystromm.learn_spring_contract.frontend.controllers;
 
-import com.github.learn_spring_contract.frontend.clients.EventDTOsClient;
+import com.github.ystromm.learn_spring_contract.frontend.clients.EventDTOsClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
