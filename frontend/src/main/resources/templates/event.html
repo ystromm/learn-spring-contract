@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>OpKoKo Schedule</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel='stylesheet' href='/webjars/bootstrap/css/bootstrap.css'/>
+</head>
+<body>
+<div class="container">
+
+    <table class="table-striped">
+        <tbody>
+        <tr>
+            <td class="col-md-2">Beskrivning:</td>
+            <td class="col-md-10" th:text="${event.description}"/>
+        </tr>
+        <tr>
+            <td class="col-md-2">Talare:</td>
+            <td class="col-md-10" th:text="${event.speaker}"/>
+        </tr>
+        <tr>
+            <td class="col-md-2">Plats:</td>
+            <td class="col-md-10" th:text="${event.location}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

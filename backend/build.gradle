@@ -4,11 +4,14 @@ buildscript {
     }
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE"
+        classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:1.0.4.RELEASE"
     }
 }
 
-apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'spring-cloud-contract'
+apply plugin: 'maven-publish'
 
 repositories {
     jcenter()
@@ -21,4 +24,5 @@ dependencies {
     compileOnly 'org.mapstruct:mapstruct-processor:1.2.0.Beta1'
     compileOnly "org.projectlombok:lombok:1.16.16"
     testCompile 'org.springframework.boot:spring-boot-starter-test'
+    testCompile 'org.springframework.cloud:spring-cloud-starter-contract-verifier:1.0.4.RELEASE'
 }
