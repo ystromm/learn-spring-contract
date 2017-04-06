@@ -17,7 +17,7 @@ public class EventController {
     private final EventRepository eventRepository;
 
     @Autowired
-    EventController(EventRepository eventRepository) {
+    public EventController(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
     }
 
