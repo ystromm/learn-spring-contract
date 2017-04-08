@@ -1,6 +1,6 @@
 package com.github.ystromm.learn_spring_contract.frontend.controller;
 
-import com.github.ystromm.learn_spring_contract.frontend.clients.EventClient;
+import com.github.ystromm.learn_spring_contract.frontend.client.EventClient;
 import com.github.ystromm.learn_spring_contract.frontend.json.Event;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

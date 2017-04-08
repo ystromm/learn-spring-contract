@@ -1,29 +1,41 @@
 package com.github.ystromm.learn_spring_contract.frontend;
 
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.springframework.test.context.web.WebAppConfiguration;
+import org.springframework.test.web.servlet.htmlunit.MockMvcWebClientBuilder;
+import org.springframework.web.context.WebApplicationContext;
 
-import static org.hamcrest.Matchers.containsString;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import java.io.IOException;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 
 @RunWith(SpringRunner.class)
-@WebMvcTest
+@WebAppConfiguration
+@ContextConfiguration(classes = { FrontEndMain.class })
 public class SchedulePageTest {
 
     @Autowired
-    private MockMvc mockMvc;
+    WebApplicationContext webApplicationContext;
+    private WebClient webClient;
+
+    @Before
+    public void setUp() {
+        webClient = MockMvcWebClientBuilder
+                .webAppContextSetup(webApplicationContext)
+                .build();
+    }
 
     @Test
-    public void should_contain_event_description() throws Exception {
-        this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().string(containsString("Konsumentdriven kontraktstestning")));
+    public void should_contain_event_description() throws IOException {
+        final HtmlPage schedulePage = webClient.getPage("http://localhost:8080");
+        assertThat(schedulePage.getElementsByIdAndOrName("event_description")).hasSize(3);
     }
 }
