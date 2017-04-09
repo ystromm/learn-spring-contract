@@ -1,5 +1,6 @@
 buildscript {
     repositories {
+        mavenLocal()
         jcenter()
     }
     dependencies {
@@ -25,14 +26,18 @@ repositories {
     jcenter()
 }
 
+group = 'com.github.ystromm.learn_spring_contract'
+version = '0.0.1-SNAPSHOT'
+
 dependencies {
     compileOnly "org.projectlombok:lombok:1.16.16"
     compile 'com.google.guava:guava:21.0'
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
     compile 'org.springframework.boot:spring-boot-devtools'
     testCompile 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
-    //testCompile 'org.springframework.test.htmlunit:spring-test-htmlunit'
     testCompile 'net.sourceforge.htmlunit:htmlunit:2.23'
+    testCompile 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
+    testCompile "com.github.ystromm.learn_spring_contract:backend:0.0.1-SNAPSHOT:stubs"
     runtime 'org.webjars:webjars-locator:0.30'
     runtime 'org.webjars:bootstrap:3.3.7-1'
 }

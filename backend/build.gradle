@@ -18,6 +18,9 @@ repositories {
     jcenter()
 }
 
+group = 'com.github.ystromm.learn_spring_contract'
+version = '0.0.1-SNAPSHOT'
+
 dependencies {
     compile 'org.springframework.boot:spring-boot-starter-web'
     compile 'com.google.guava:guava:21.0'
