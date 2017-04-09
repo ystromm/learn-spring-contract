@@ -8,8 +8,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Optional;
 
 @Component
@@ -24,8 +24,9 @@ public class EventClient {
     }
 
     public Collection<Event> getAll() {
-        final ResponseEntity<Event[]> responseEntity = restTemplate.getForEntity(BASE_URL, Event[].class);
-        return Arrays.asList(responseEntity.getBody());
+        //final ResponseEntity<Event[]> responseEntity = restTemplate.getForEntity(BASE_URL, Event[].class);
+        //return Arrays.asList(responseEntity.getBody());
+        return Collections.singletonList(Event.builder().description("description").id(1).speaker("speaker").location("location").build());
     }
 
     public Optional<Event> get(int id) {

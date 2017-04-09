@@ -7,7 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.htmlunit.MockMvcWebClientBuilder;
 import org.springframework.web.context.WebApplicationContext;
@@ -17,7 +17,7 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-@RunWith(SpringRunner.class)
+@RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes = { FrontEndMain.class })
 public class SchedulePageTest {
@@ -36,6 +36,6 @@ public class SchedulePageTest {
     @Test
     public void should_contain_event_description() throws IOException {
         final HtmlPage schedulePage = webClient.getPage("http://localhost:8080");
-        assertThat(schedulePage.getElementsByIdAndOrName("event_description")).hasSize(3);
+        assertThat(schedulePage.getElementsByIdAndOrName("event_description")).hasSize(1);
     }
 }

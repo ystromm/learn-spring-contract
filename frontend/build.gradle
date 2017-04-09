@@ -32,7 +32,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-devtools'
     testCompile 'org.springframework.cloud:spring-cloud-starter-contract-verifier'
     //testCompile 'org.springframework.test.htmlunit:spring-test-htmlunit'
-    testCompile 'net.sourceforge.htmlunit:htmlunit:2.26'
+    testCompile 'net.sourceforge.htmlunit:htmlunit:2.23'
     runtime 'org.webjars:webjars-locator:0.30'
     runtime 'org.webjars:bootstrap:3.3.7-1'
 }
