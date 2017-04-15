@@ -24,12 +24,12 @@ public class EventClient {
     }
 
     public Collection<Event> getAll() {
-        //final ResponseEntity<Event[]> responseEntity = restTemplate.getForEntity(BASE_URL, Event[].class);
-        //return Arrays.asList(responseEntity.getBody());
-        final Event event1 = Event.builder().description("Konsumentdrivna kontraktstester").id(1).speaker("Martin Carlsson").location("location").build();
-        final Event event2 = Event.builder().description("Att bygga en speldator").id(2).speaker("Fredrik Löfgren").location("location").build();
-        final Event event3 = Event.builder().description("State of the Nation").id(3).speaker("Johan Malmliden").location("location").build();
-        return Arrays.asList(event1, event2, event3);
+        final ResponseEntity<Event[]> responseEntity = restTemplate.getForEntity(BASE_URL, Event[].class);
+        return Arrays.asList(responseEntity.getBody());
+//        final Event event1 = Event.builder().description("Konsumentdrivna kontraktstester").id(1).speaker("Martin Carlsson").location("location").build();
+//        final Event event2 = Event.builder().description("Att bygga en speldator").id(2).speaker("Fredrik Löfgren").location("location").build();
+//        final Event event3 = Event.builder().description("State of the Nation").id(3).speaker("Johan Malmliden").location("location").build();
+//        return Arrays.asList(event1, event2, event3);
     }
 
     public Optional<Event> get(int id) {
