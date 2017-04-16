@@ -6,15 +6,13 @@ buildscript {
     dependencies {
         classpath "org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE"
         classpath "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
-        // if using Stub Runner (consumer side) only remove this dependency
-        classpath "org.springframework.cloud:spring-cloud-contract-gradle-plugin:1.0.3.RELEASE"
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'org.springframework.boot'
 apply plugin: "io.spring.dependency-management"
-apply plugin: 'spring-cloud-contract'
+// apply plugin: 'spring-cloud-contract'
 
 dependencyManagement {
     imports {
@@ -37,7 +35,7 @@ dependencies {
     compile 'org.springframework.boot:spring-boot-devtools'
     testCompile 'net.sourceforge.htmlunit:htmlunit:2.23'
     testCompile 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
-    testCompile "com.github.ystromm.learn_spring_contract:backend:0.0.1-SNAPSHOT-stubs"
+    // testCompile "com.github.ystromm.learn_spring_contract:backend:0.0.1-SNAPSHOT-stubs"
     runtime 'org.webjars:webjars-locator:0.30'
     runtime 'org.webjars:bootstrap:3.3.7-1'
 }
