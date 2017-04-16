@@ -1,43 +1,56 @@
 buildscript {
     repositories {
+        mavenCentral()
         mavenLocal()
-        jcenter()
+        maven { url "http://repo.spring.io/snapshot" }
+        maven { url "http://repo.spring.io/milestone" }
+        maven { url "http://repo.spring.io/release" }
     }
     dependencies {
-        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE"
-        classpath "io.spring.gradle:dependency-management-plugin:0.6.0.RELEASE"
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.5.1.RELEASE"
     }
-}
-
-apply plugin: 'java'
-apply plugin: 'org.springframework.boot'
-apply plugin: "io.spring.dependency-management"
-// apply plugin: 'spring-cloud-contract'
-
-dependencyManagement {
-    imports {
-        mavenBom 'org.springframework.cloud:spring-cloud-contract-dependencies:1.0.3.RELEASE'
-    }
-}
-
-repositories {
-    mavenLocal()
-    jcenter()
 }
 
 group = 'com.github.ystromm.learn_spring_contract'
 version = '0.0.1-SNAPSHOT'
 
+repositories {
+    mavenCentral()
+    mavenLocal()
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
+    maven { url "http://repo.spring.io/release" }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'maven-publish'
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:$BOM_VERSION"
+    }
+}
+
 dependencies {
     compileOnly "org.projectlombok:lombok:1.16.16"
     compile 'com.google.guava:guava:21.0'
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    compile 'org.springframework.boot:spring-boot-devtools'
+
+    testCompile("org.springframework.cloud:spring-cloud-starter-contract-stub-runner")
+    // testCompile("com.example:beer-common:0.0.1-SNAPSHOT")
+    // compile 'org.springframework.boot:spring-boot-devtools'
     testCompile 'net.sourceforge.htmlunit:htmlunit:2.23'
-    testCompile 'org.springframework.cloud:spring-cloud-starter-contract-stub-runner'
     // testCompile "com.github.ystromm.learn_spring_contract:backend:0.0.1-SNAPSHOT-stubs"
     runtime 'org.webjars:webjars-locator:0.30'
     runtime 'org.webjars:bootstrap:3.3.7-1'
+
 }
 
-
+test {
+    testLogging {
+        exceptionFormat = 'full'
+    }
+}

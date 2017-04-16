@@ -11,21 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.Optional;
 
 @Controller
-public class EventController {
+public class DetailController {
 
     private final EventClient eventClient;
 
     @Autowired
-    public EventController(EventClient eventClient) {
+    public DetailController(EventClient eventClient) {
         this.eventClient = eventClient;
     }
 
-    @RequestMapping("/event/{id}")
-    public String schedule(@PathVariable("id") int id,  Model model) {
+    @RequestMapping("/{id}")
+    public String detail(@PathVariable("id") int id, Model model) {
         final Optional<Event> optionalEvent = eventClient.get(id);
         if (optionalEvent.isPresent()) {
             model.addAttribute("event", optionalEvent.get());
-            return "event";
+            return "detail";
         }
         else {
             return "redirect:/";

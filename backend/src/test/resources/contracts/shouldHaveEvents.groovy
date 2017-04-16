@@ -4,7 +4,6 @@ org.springframework.cloud.contract.spec.Contract.make {
     request {
         method 'GET'
         headers {
-            contentType('application/json')
         }
         url '/event'
     }

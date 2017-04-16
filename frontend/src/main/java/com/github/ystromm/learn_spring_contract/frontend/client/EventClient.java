@@ -15,8 +15,9 @@ import java.util.Optional;
 @Component
 public class EventClient {
 
-    public static final String BASE_URL = "http://localhost:8081/event";
+    public static final String BASE_URL = "http://localhost:";
     private final RestTemplate restTemplate;
+    private final int port = 8081;
 
     @Autowired
     EventClient(RestTemplateBuilder restTemplateBuilder) {
@@ -24,17 +25,13 @@ public class EventClient {
     }
 
     public Collection<Event> getAll() {
-        final ResponseEntity<Event[]> responseEntity = restTemplate.getForEntity(BASE_URL, Event[].class);
+        final ResponseEntity<Event[]> responseEntity = restTemplate.getForEntity("http://localhost:" + port + "/event", Event[].class);
         return Arrays.asList(responseEntity.getBody());
-//        final Event event1 = Event.builder().description("Konsumentdrivna kontraktstester").id(1).speaker("Martin Carlsson").location("location").build();
-//        final Event event2 = Event.builder().description("Att bygga en speldator").id(2).speaker("Fredrik Löfgren").location("location").build();
-//        final Event event3 = Event.builder().description("State of the Nation").id(3).speaker("Johan Malmliden").location("location").build();
-//        return Arrays.asList(event1, event2, event3);
     }
 
     public Optional<Event> get(int id) {
         try {
-            final ResponseEntity<Event> responseEntity = restTemplate.getForEntity(BASE_URL + "/{id}", Event.class, id);
+            final ResponseEntity<Event> responseEntity = restTemplate.getForEntity("http://localhost:" + port + "/event/{id}", Event.class, id);
             return Optional.of(responseEntity.getBody());
         }
         catch (HttpClientErrorException e) {
