@@ -4,6 +4,9 @@ import com.github.ystromm.learn_spring_contract.backend.json.Event;
 import com.google.common.collect.ImmutableMap;
 import org.springframework.stereotype.Component;
 
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 import java.util.Map;
 import java.util.Optional;
@@ -11,34 +14,43 @@ import java.util.Optional;
 @Component
 public class EventRepository {
 
-    private final Event event1 = Event.builder().
+    private final EventEntity eventEntity1 = EventEntity.builder().
             id(1).
-            description("State of the Nation").
+            title("State of the Nation").
+            description("").
             speaker("Johan Malmliden").
             location("Adelsö").
+            start(LocalDateTime.from(DateTimeFormatter.ISO_DATE_TIME.parse("2016-11-06T10:00:00"))).
+            length(Duration.ofMinutes(30)).
             build();
-    private final Event event2 = Event.builder().
+    private final EventEntity eventEntity2 = EventEntity.builder().
             id(2).
-            description("Konsumentdrivna kontraktstester").
+            title("Konsumentdrivna kontraktstester").
+            description("").
             speaker("Martin Carlsson").
             location("Färingsö").
+            start(LocalDateTime.from(DateTimeFormatter.ISO_DATE_TIME.parse("2016-11-06T11:00:00"))).
+            length(Duration.ofMinutes(45)).
             build();
-    private final Event event3 = Event.builder().
+    private final EventEntity eventEntity3 = EventEntity.builder().
             id(3).
-            description("Att bygga en speldator").
+            title("Att bygga en speldator").
+            description("").
             speaker("Fredrik Löfgren").
             location("Lovö").
+            start(LocalDateTime.from(DateTimeFormatter.ISO_DATE_TIME.parse("2016-11-06T12:00:00"))).
+            length(Duration.ofMinutes(45)).
             build();
-    private final Map<Integer, Event> events = ImmutableMap.of(
-            event1.getId(), event1,
-            event2.getId(), event2,
-            event3.getId(), event3);
+    private final Map<Integer, EventEntity> eventEntities = ImmutableMap.of(
+            eventEntity1.getId(), eventEntity1,
+            eventEntity2.getId(), eventEntity2,
+            eventEntity3.getId(), eventEntity3);
 
-    public Collection<Event> getAll() {
-        return events.values();
+    public Collection<EventEntity> getAll() {
+        return eventEntities.values();
     }
 
-    public Optional<Event> get(int id) {
-        return Optional.ofNullable(events.get(id));
+    public Optional<EventEntity> get(int id) {
+        return Optional.ofNullable(eventEntities.get(id));
     }
 }
