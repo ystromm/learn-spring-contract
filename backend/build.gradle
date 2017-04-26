@@ -42,9 +42,11 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     compile 'com.google.guava:guava:21.0'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.7'
     compileOnly "org.projectlombok:lombok:1.16.16"
     testCompile("org.springframework.cloud:spring-cloud-starter-contract-verifier")
     testCompile 'org.springframework.boot:spring-boot-starter-test'
+
     // tag::test_dep[]
     // testCompile("com.example:beer-common:0.0.1-SNAPSHOT")
     // end::test_dep[]
