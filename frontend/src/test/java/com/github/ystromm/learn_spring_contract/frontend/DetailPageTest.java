@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.htmlunit.MockMvcWebClientBuilder;
@@ -22,6 +23,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @AutoConfigureStubRunner(workOffline = true, ids = "com.github.ystromm.learn_spring_contract:backend:+:stubs:8081")
 @SpringBootTest
 @AutoConfigureMockMvc
+@DirtiesContext
 public class DetailPageTest {
 
     @Autowired

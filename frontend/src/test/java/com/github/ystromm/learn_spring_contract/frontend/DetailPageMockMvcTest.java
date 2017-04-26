@@ -16,13 +16,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@DirtiesContext
 @RunWith(SpringRunner.class)
 @ContextConfiguration(classes = {FrontEndMain.class})
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureStubRunner(workOffline = true, ids = "com.github.ystromm.learn_spring_contract:backend:+:8081")
 @AutoConfigureMockMvc
 @AutoConfigureJsonTesters
+@DirtiesContext
 public class DetailPageMockMvcTest {
 
     @Autowired
