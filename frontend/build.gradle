@@ -35,9 +35,10 @@ dependencyManagement {
 dependencies {
     compileOnly "org.projectlombok:lombok:1.16.16"
     compile 'com.google.guava:guava:21.0'
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-starter-actuator"
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.7'
 
     testCompile("org.springframework.cloud:spring-cloud-starter-contract-stub-runner")
     // testCompile("com.example:beer-common:0.0.1-SNAPSHOT")
