@@ -1,4 +1,4 @@
-package com.github.ystromm.learn_spring_contract.frontend.json;
+package com.github.ystromm.learn_spring_contract.backend.json;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -7,15 +7,13 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
-
 @Data
 @Builder
 @Setter(AccessLevel.NONE)
-public class Event {
+public class EventV2 {
     private int id;
     private String description;
     private String speaker;
     private String location;
-    // TODO demo
     private LocalDateTime start;
 }

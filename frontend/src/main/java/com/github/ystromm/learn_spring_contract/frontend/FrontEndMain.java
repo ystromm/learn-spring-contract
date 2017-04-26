@@ -13,8 +13,7 @@ public class FrontEndMain {
 
     public static void main(String[] args) {
         ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        mapper.registerModule(new JavaTimeModule()).disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
         SpringApplication.run(FrontEndMain.class, args);
     }
 }

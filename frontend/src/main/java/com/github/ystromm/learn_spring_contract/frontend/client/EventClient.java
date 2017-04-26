@@ -25,12 +25,13 @@ public class EventClient {
     }
 
     public Collection<Event> getAll() {
-        final ResponseEntity<Event[]> responseEntity = restTemplate.getForEntity("http://localhost:" + port + "/v2/event", Event[].class);
+        final ResponseEntity<Event[]> responseEntity = restTemplate.getForEntity("http://localhost:" + port + "/event", Event[].class);
         return Arrays.asList(responseEntity.getBody());
     }
 
     public Optional<Event> get(int id) {
         try {
+            // TODO demo
             final ResponseEntity<Event> responseEntity = restTemplate.getForEntity("http://localhost:" + port + "/v2/event/{id}", Event.class, id);
             return Optional.of(responseEntity.getBody());
         }

@@ -1,6 +1,5 @@
 package com.github.ystromm.learn_spring_contract.backend.repository;
 
-import com.github.ystromm.learn_spring_contract.backend.json.Event;
 import com.google.common.collect.ImmutableMap;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +19,7 @@ public class EventRepository {
             description("").
             speaker("Johan Malmliden").
             location("Adelsö").
-            start(LocalDateTime.from(DateTimeFormatter.ISO_DATE_TIME.parse("2016-11-06T10:00:00"))).
+            start(LocalDateTime.from(DateTimeFormatter.ISO_DATE_TIME.parse("2017-01-19T18:36:51"))).
             length(Duration.ofMinutes(30)).
             build();
     private final EventEntity eventEntity2 = EventEntity.builder().
