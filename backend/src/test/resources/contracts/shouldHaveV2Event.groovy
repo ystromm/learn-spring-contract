@@ -3,7 +3,7 @@ package contracts
 org.springframework.cloud.contract.spec.Contract.make {
     request {
         method 'GET'
-        url '/event/1'
+        url '/v2/event/1'
         headers {
         }
     }
@@ -13,7 +13,9 @@ org.springframework.cloud.contract.spec.Contract.make {
                 id      : 1,
                 speaker : 'Johan Malmliden',
                 description: 'State of the Nation',
-                location: 'Adelsö'
+                location: 'Adelsö',
+                start: '2017-01-19T18:36:51Z'
+
         ])
         headers {
             contentType('application/json')

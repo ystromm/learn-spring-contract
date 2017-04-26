@@ -1,6 +1,7 @@
 package com.github.ystromm.learn_spring_contract.frontend;
 
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.DomElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,4 +46,10 @@ public class DetailPageTest {
         assertThat(webClient.<HtmlPage>getPage("/1").getElementById("event_location").getTextContent()).isEqualTo("Adelsö");
     }
 
+    @Test
+    public void should_have_start_time() throws IOException {
+        final DomElement event_start = webClient.<HtmlPage>getPage("/1").getElementById("event_start");
+        assertThat(event_start).isNotNull();
+        assertThat(event_start.getTextContent()).isEqualTo("2017-01-19T18:36:51");
+    }
 }

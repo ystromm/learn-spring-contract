@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 
 @Data
 @Builder
@@ -14,4 +16,5 @@ public class Event {
     private String description;
     private String speaker;
     private String location;
+    private LocalDateTime start;
 }
