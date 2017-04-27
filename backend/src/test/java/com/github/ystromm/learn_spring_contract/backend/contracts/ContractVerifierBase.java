@@ -24,7 +24,6 @@ public class ContractVerifierBase {
                 objectMapperConfig().jackson2ObjectMapperFactory(new Jackson2ObjectMapperFactory() {
             @Override
             public ObjectMapper create(Class cls, String charset) {
-                System.err.println("=============================================");
                 ObjectMapper objectMapper = new ObjectMapper();
                 objectMapper.registerModule(new JavaTimeModule());
                 objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
@@ -34,11 +33,8 @@ public class ContractVerifierBase {
         RestAssured.config = RestAssuredConfig.config().objectMapperConfig(
                 objectMapperConfig().jackson2ObjectMapperFactory(new Jackson2ObjectMapperFactory() {
 
-                    @SuppressWarnings("rawtypes")
                     @Override
                     public ObjectMapper create(Class cls, String charset) {
-                        System.err.println("=============================================");
-
                         ObjectMapper objectMapper = new ObjectMapper();
                         objectMapper.registerModule(new JavaTimeModule());
                         objectMapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);

@@ -14,7 +14,7 @@ org.springframework.cloud.contract.spec.Contract.make {
                 speaker : 'Johan Malmliden',
                 description: 'State of the Nation',
                 location: 'Adelsö',
-                start: '2017-01-19T18:36:51Z'
+                start: '2017-01-19T18:36:51'
 
         ])
         headers {

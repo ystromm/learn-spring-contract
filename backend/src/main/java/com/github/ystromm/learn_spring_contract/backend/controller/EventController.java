@@ -57,7 +57,7 @@ public class EventController {
                 .description(eventEntity.getTitle())
                 .location(eventEntity.getLocation())
                 .speaker(eventEntity.getSpeaker())
-                .start(eventEntity.getStart())
+                .start(eventEntity.getStart().toString())
                 .build();
     }
 }
